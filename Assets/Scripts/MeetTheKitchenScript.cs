@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MeetTheKitchenScript : MonoBehaviour
 {
 
-    private int isNext = 0;
-    public TextMeshProUGUI text;
-    public TextMeshProUGUI button;
-    public GameObject canvas;
+    public GameObject[] stations;
     // Start is called before the first frame update
     void Start()
     {
-        
+        foreach (var station in stations)
+        {
+            station.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -22,16 +23,12 @@ public class MeetTheKitchenScript : MonoBehaviour
         
     }
 
-    void nextButton()
+
+    public void onTeleportAnchor(int stationNumber)
     {
-        switch (isNext)
-        {
-            case 0:
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-        }
+        
+        stations[stationNumber].SetActive(false);
+        if (stationNumber!=5)
+        stations[stationNumber+1].SetActive(true);
     }
 }
