@@ -7,8 +7,9 @@ using UnityEngine;
 public class UpdateCanvasTour : MonoBehaviour
 {
     private int isNext = 0;
-    public GameObject canvas;
+    public GameObject button;
     public GameObject station1;
+    public TextMeshProUGUI textCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -28,16 +29,16 @@ public class UpdateCanvasTour : MonoBehaviour
         {
             case 0:
                 isNext++;
-                break;
-            case 1:
-                isNext++;
-                break;
-            case 2:
-                isNext++;
+                textCanvas.text = "Teletransportate hacia la estacion 1.";
                 station1.SetActive(true);
                 break;
             default:
                 break;
         }
+    }
+
+    public void updateCanvasTask2()
+    {
+        textCanvas.text = "Teletransportate a la estacion 1 para continuar.";
     }
 }

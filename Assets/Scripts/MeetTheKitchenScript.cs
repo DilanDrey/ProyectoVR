@@ -8,6 +8,9 @@ public class MeetTheKitchenScript : MonoBehaviour
 {
 
     public GameObject[] stations;
+
+    public AudioSource source;
+    public AudioClip[] clips;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,14 @@ public class MeetTheKitchenScript : MonoBehaviour
         
     }
 
+    public void activateFirstAnchor()
+    {
+        if (!stations[0].active)
+        {
+            stations[0].SetActive(true);
+        }
+
+    }
 
     public void onTeleportAnchor(int stationNumber)
     {
@@ -30,5 +41,10 @@ public class MeetTheKitchenScript : MonoBehaviour
         stations[stationNumber].SetActive(false);
         if (stationNumber!=5)
         stations[stationNumber+1].SetActive(true);
+    }
+
+    public void startSecondTask()
+    {
+        source.PlayOneShot(clips[0]);
     }
 }
