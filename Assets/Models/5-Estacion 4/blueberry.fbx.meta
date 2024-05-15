@@ -3,7 +3,27 @@ guid: 5f9e59ec7912b0e49b220b550230e229
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fr_gourmetBlueberry_albedo
+    second: {fileID: 2800000, guid: 5d42b3d0bea56a14f8cee41c537043c7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fr_gourmetBlueberry_nrm
+    second: {fileID: 2800000, guid: 88cb044af9cd880449154950d8a7d815, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fr_gourmetBlueberry_rough
+    second: {fileID: 2800000, guid: 18fcdc9b5686bd54f8545cb5881bd175, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fr_gourmetBlueberry_specular
+    second: {fileID: 2800000, guid: eac22c5a32886984ab3acb8348147b46, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

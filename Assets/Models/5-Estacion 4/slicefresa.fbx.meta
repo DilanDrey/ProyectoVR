@@ -3,7 +3,12 @@ guid: 837fbfaa2488cd942b86e9f3d07dc460
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TS_Strawberry_001_Half
+    second: {fileID: 2800000, guid: d2eec13954a4d4c4db8bad6dfe6b17b4, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

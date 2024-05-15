@@ -3,7 +3,27 @@ guid: a5d466644efe9a245bca25b6aba2593b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: cgt_fmcg_kitchen_utensils_065.spoon_set_001.base_color.srgb.1001
+    second: {fileID: 2800000, guid: e4d672e6f7671ff478140d0989d6f21b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: cgt_fmcg_kitchen_utensils_065.spoon_set_001.metallic.linear.1001
+    second: {fileID: 2800000, guid: 82681c6d79befb44c8c77fac24ffd570, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: cgt_fmcg_kitchen_utensils_065.spoon_set_001.normal_ogl.linear.1001
+    second: {fileID: 2800000, guid: 2c175103c8fb503478a9332df478932c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: cgt_fmcg_kitchen_utensils_065.spoon_set_001.roughness.linear.1001
+    second: {fileID: 2800000, guid: f462837dc3d733449bc466cb6971fd82, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
