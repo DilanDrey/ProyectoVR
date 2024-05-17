@@ -8,7 +8,7 @@ public class TazonEstacion2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }
 
     // Update is called once per frame
@@ -16,12 +16,14 @@ public class TazonEstacion2 : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+
+    private void OnCollisionEnter(Collision collision)
     {
-        GetComponent<Collider>().isTrigger = false;
-        GetComponent<Rigidbody>().useGravity = true;
-        GetComponent<XRGrabInteractable>().enabled = true;
-        Debug.Log(GetComponent<XRGrabInteractable>().enabled);
-        Debug.Log(other.gameObject.transform.rotation.eulerAngles.ToString());
+        Debug.Log(collision.gameObject.name);
+    }
+    
+    private void OnCollisionExit(Collision collision)
+    {
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
 }
