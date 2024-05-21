@@ -5,6 +5,7 @@ using UnityEngine;
 public class Blender : MonoBehaviour
 {
     public GameObject blenderWithBowl;
+    public GameObject bowl;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,5 +36,9 @@ public class Blender : MonoBehaviour
     public void test()
     {
         Debug.Log("Desde el script del hijo ");
+        blenderWithBowl.SetActive(true);
+        bowl.SetActive(false);
+        gameObject.SetActive(false);
+
     }
 }
