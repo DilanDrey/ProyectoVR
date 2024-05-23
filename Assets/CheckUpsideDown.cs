@@ -13,17 +13,20 @@ public class CheckUpsideDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Vector3.Dot(transform.up, Vector3.down) > 0)
         {
-            Debug.Log("Esta viendo hacia abajo");
-            
+            //Debug.Log($"{gameObject.name} esta viendo hacia abajo");
         }
+        
+        /*
         else if (Vector3.Dot(transform.forward, Vector3.down) > 0)
         {
             Debug.Log(name);
             Debug.Log("Esta viendo hacia abajo");
             
         }
+        */
     }
 
     public bool checkUpsideDown()

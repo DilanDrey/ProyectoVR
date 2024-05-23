@@ -19,11 +19,25 @@ public class TazonEstacion2 : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
+        Debug.Log(collision.transform.gameObject.name);
+        Debug.Log(collision.transform.gameObject.name=="mesasdetrabajo");
+        if (collision.transform.gameObject.name != "mesasdetrabajo")
+        {
+            Debug.Log(collision.gameObject.name);
+        }
+        else
+        {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        }
+        
     }
     
     private void OnCollisionExit(Collision collision)
     {
-        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        if (collision.transform.gameObject.name != "mesasdetrabajo")
+        {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        }
+        
     }
 }
