@@ -36,7 +36,7 @@ public class TazonEstacion2 : MonoBehaviour
     {
         if (collision.transform.gameObject.name != "mesasdetrabajo")
         {
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            //GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         }
         
     }
