@@ -13,7 +13,6 @@ public enum BowlState
 
 public class TazonEstacion2 : MonoBehaviour
 {
-    public GameObject emptyBowl;
     public GameObject partialIngredientsBowl;
     public GameObject completeIngredientsBowl;
     public GameObject mixingBowl;
@@ -27,6 +26,7 @@ public class TazonEstacion2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         ingredientes = new List<string>();
         ordenIngredientes = new List<string> { "huevosBatidos" }; // , "harina", "azucar", "leche", "aceite", "sal"
         indiceActual = 0;
@@ -65,6 +65,14 @@ public class TazonEstacion2 : MonoBehaviour
             {
                 Debug.Log("Ingrediente fuera de orden o no permitido: " + objectName);
             }
+        }
+    }
+
+    public void OnCollisionExit(Collision collision)
+    {
+        if (indiceActual == ordenIngredientes.Count)
+        {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         }
     }
 
@@ -114,7 +122,6 @@ public class TazonEstacion2 : MonoBehaviour
 
     private void UpdateBowlAppearance()
     {
-        emptyBowl.SetActive(currentState == BowlState.Empty);
         partialIngredientsBowl.SetActive(currentState == BowlState.PartialIngredients);
         completeIngredientsBowl.SetActive(currentState == BowlState.CompleteIngredients);
         mixingBowl.SetActive(currentState == BowlState.Mixing);
