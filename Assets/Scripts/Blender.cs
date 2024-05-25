@@ -6,10 +6,12 @@ public class Blender : MonoBehaviour
 {
     public GameObject blenderWithBowl;
     public GameObject bowl;
+    private TazonEstacion2 tazonEstacion2;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        tazonEstacion2 = bowl.GetComponent<TazonEstacion2>();
     }
 
     // Update is called once per frame
@@ -19,26 +21,36 @@ public class Blender : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {   
-        /*
-        Debug.Log("Dentro del onTrigger");
-        Debug.Log(other.gameObject.name);
-        if (other.gameObject.name == "bowlbatidora")
-        {
-
-            //gameObject.SetActive(false);
-            Debug.Log("Es la batidora");
-            blenderWithBowl.SetActive(true);
-            gameObject.SetActive(false);
-        }
-        */
+    {
+        // Comentado el código original
     }
+
     public void test()
     {
         Debug.Log("Desde el script del hijo ");
         blenderWithBowl.SetActive(true);
         bowl.SetActive(false);
         gameObject.SetActive(false);
+    }
 
+    public bool AreIngredientsComplete()
+    {
+        List<string> ingredientes = tazonEstacion2.GetIngredientes();
+        List<string> ordenIngredientes = new List<string> { "huevosBatidos" }; // , "harina", "azucar", "leche", "aceite", "sal"
+
+        if (ingredientes.Count != ordenIngredientes.Count)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < ordenIngredientes.Count; i++)
+        {
+            if (ingredientes[i] != ordenIngredientes[i])
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

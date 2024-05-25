@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class DetectBladeCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
     private Blender script;
+
+    // Start is called before the first frame update
     void Start()
     {
         script = transform.parent.gameObject.GetComponent<Blender>();
@@ -14,7 +15,7 @@ public class DetectBladeCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,7 +24,16 @@ public class DetectBladeCollision : MonoBehaviour
         Debug.Log(other.gameObject.name);
         if (other.gameObject.name == "bowlbatidora")
         {
-            script.test();
+            TazonEstacion2 tazonScript = other.GetComponent<TazonEstacion2>();
+            if (tazonScript != null && tazonScript.AreIngredientsComplete())
+            {
+                tazonScript.StartMixing();
+                script.test();
+            }
+            else
+            {
+                Debug.Log("Ingredientes incompletos. No se puede activar la batidora.");
+            }
         }
     }
 }
