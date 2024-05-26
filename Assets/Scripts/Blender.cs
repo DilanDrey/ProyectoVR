@@ -27,7 +27,6 @@ public class Blender : MonoBehaviour
 
     public void test()
     {
-        Debug.Log("Desde el script del hijo ");
         blenderWithBowl.SetActive(true);
         bowl.SetActive(false);
         gameObject.SetActive(false);

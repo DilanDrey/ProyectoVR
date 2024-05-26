@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class ImageHandler : MonoBehaviour
 {
@@ -57,7 +59,7 @@ public class ImageHandler : MonoBehaviour
             image.texture = imagenes[currentImage];
             previousButton.gameObject.SetActive(true);
         }
-
+        
         nextButton.gameObject.SetActive(currentImage < imagenes.Length - 1);
     }
 }
