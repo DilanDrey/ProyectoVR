@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum BowlState
@@ -17,16 +18,20 @@ public class TazonEstacion2 : MonoBehaviour
     public GameObject completeIngredientsBowl;
     public GameObject mixingBowl;
     public GameObject mixedBowl;
+    public AudioClip liquidSound;
+    public AudioClip solidSound;
 
     private List<string> ingredientes;
     private List<string> ordenIngredientes;
     private int indiceActual;
     private BowlState currentState;
+    private AudioSource source;
 
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        source = GetComponent<AudioSource>();
         ingredientes = new List<string>();
         ordenIngredientes = new List<string> { "huevosBatidos" }; // , "harina", "azucar", "leche", "aceite", "sal"
         indiceActual = 0;
@@ -42,12 +47,14 @@ public class TazonEstacion2 : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         string objectName = collision.transform.gameObject.name;
-        Debug.Log(objectName);
 
+        if (currentState != BowlState.Empty && currentState != BowlState.PartialIngredients) return;
         if (objectName != "mesasdetrabajo")
         {
             if (indiceActual < ordenIngredientes.Count && objectName == ordenIngredientes[indiceActual])
             {
+
+                playAudio(collision.transform.tag.Equals("LiquidIngredent"));
                 ingredientes.Add(objectName);
                 Debug.Log("Ingrediente agregado: " + objectName);
                 indiceActual++;
@@ -75,6 +82,20 @@ public class TazonEstacion2 : MonoBehaviour
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         }
     }
+
+    private void playAudio(bool isLiquid)
+    {
+        if (isLiquid)
+        {
+            source.clip = liquidSound;
+        } else
+        {
+            source.clip = solidSound;
+        }
+        source.Play();
+
+    }
+
 
     public List<string> GetIngredientes()
     {

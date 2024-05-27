@@ -21,7 +21,8 @@ public class CrepeSticky : MonoBehaviour
 
             // Ajusta la posición local de la fresa para que quede correctamente posicionada en la crepa
             collision.transform.localPosition = transform.InverseTransformPoint(collision.transform.position);
-            collision.transform.localRotation = Quaternion.identity;
+            //collision.transform.localRotation = Quaternion.identity;
+            collision.transform.localRotation = Quaternion.Euler(-90, 0, 0);
 
             Debug.Log($"Fresa pegada a la crepa en la posición {collision.transform.localPosition}");
         }
