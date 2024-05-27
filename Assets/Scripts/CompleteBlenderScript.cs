@@ -6,7 +6,7 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
 
-    public AudioSource audio;
+    public new AudioSource audio;
     public GameObject blender;
     public GameObject bowl;
     // Start is called before the first frame update
@@ -31,11 +31,19 @@ public class NewBehaviourScript : MonoBehaviour
     {
         audio.loop = true;
         audio.Play();
-        yield return new WaitForSeconds(30);
+        Debug.Log($"El padre es: {transform.parent.name}");
+        yield return new WaitForSeconds(10);
         audio.loop = false;
         blender.SetActive(true);
         bowl.SetActive(true);
-        bowl.gameObject.transform.Translate(new Vector3(-0.9117f, -0.5814f, -2.2393f));
+        bowl.GetComponent<TazonEstacion2>().SetState(BowlState.Mixed);
+        
+        bowl.transform.localEulerAngles = Vector3.zero;
+        bowl.transform.SetParent(transform.parent);
+        bowl.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        Debug.Log($"El padre del bowl es: {bowl.transform.parent}");
+        bowl.transform.position = new Vector3(-1.9559f, 0.9288f, -5.5064f);
+        bowl.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         gameObject.SetActive(false);
     }
 

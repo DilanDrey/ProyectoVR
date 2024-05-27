@@ -24,15 +24,19 @@ public class DetectBladeCollision : MonoBehaviour
         Debug.Log(other.gameObject.name);
         if (other.gameObject.name == "bowlbatidora")
         {
+           
             TazonEstacion2 tazonScript = other.GetComponent<TazonEstacion2>();
-            if (tazonScript != null && tazonScript.AreIngredientsComplete())
-            {
-                tazonScript.StartMixing();
-                script.test();
-            }
-            else
-            {
-                Debug.Log("Ingredientes incompletos. No se puede activar la batidora.");
+            if (!tazonScript.IsMixed())
+            { 
+                if (tazonScript != null && tazonScript.AreIngredientsComplete())
+                {
+                    tazonScript.StartMixing();
+                    script.test();
+                }
+                else
+                {
+                    Debug.Log("Ingredientes incompletos. No se puede activar la batidora.");
+                }
             }
         }
     }

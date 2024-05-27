@@ -11,7 +11,7 @@ public class CrepeSticky : MonoBehaviour
         {
             // Hace que la fresa se convierta en hija de la crepa
             collision.transform.SetParent(transform);
-
+            
             // Desactiva el Rigidbody para que la fresa no siga siendo afectada por la física
             Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
             if (rb != null)

@@ -114,7 +114,7 @@ public class TazonEstacion2 : MonoBehaviour
         SetState(BowlState.Mixed);
     }
 
-    private void SetState(BowlState newState)
+    public void SetState(BowlState newState)
     {
         currentState = newState;
         UpdateBowlAppearance();
@@ -126,5 +126,11 @@ public class TazonEstacion2 : MonoBehaviour
         completeIngredientsBowl.SetActive(currentState == BowlState.CompleteIngredients);
         mixingBowl.SetActive(currentState == BowlState.Mixing);
         mixedBowl.SetActive(currentState == BowlState.Mixed);
+    }
+
+    public bool IsMixed()
+    {
+        if (currentState == BowlState.Mixed) return true;
+        return false;
     }
 }
