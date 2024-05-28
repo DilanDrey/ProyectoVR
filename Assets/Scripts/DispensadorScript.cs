@@ -37,6 +37,7 @@ public class DispensadorScript : MonoBehaviour
                 {
                     Rigidbody rb = GetComponent<Rigidbody>();
                     rb.constraints = RigidbodyConstraints.None;
+                    state = DispensadorState.Filled;
                 }
                 
             }
