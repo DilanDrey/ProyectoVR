@@ -28,7 +28,7 @@ public class MeetTheKitchenScript : MonoBehaviour
 
     public void activateFirstAnchor()
     {
-        if (!stations[0].active)
+        if (!stations[0].activeSelf)
         {
             stations[0].SetActive(true);
         }
