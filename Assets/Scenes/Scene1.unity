@@ -8804,6 +8804,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2214a5fdaa1ef8646807f1ca10083fad, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1057217193}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2214a5fdaa1ef8646807f1ca10083fad, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1057217194}
   m_SourcePrefab: {fileID: 100100000, guid: 2214a5fdaa1ef8646807f1ca10083fad, type: 3}
 --- !u!4 &1057217188 stripped
 Transform:
@@ -8836,6 +8839,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.039743807, y: 0.039743796, z: 0.023129439}
   m_Center: {x: 0, y: 0, z: 0.0019050587}
+--- !u!114 &1057217194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057217189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f87b22191441a8a42ad8b9e648d782e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueberryPrefab: {fileID: 3585453509585395374, guid: 58bce37b225e44d438b318314548c25a, type: 3}
+  numberOfBlueberries: 10
+  spawnAreaCenter: {x: 0, y: 0, z: 0}
+  spawnAreaSize: {x: 0.1, y: 0.1, z: 0.1}
 --- !u!1001 &1072439154
 PrefabInstance:
   m_ObjectHideFlags: 0
