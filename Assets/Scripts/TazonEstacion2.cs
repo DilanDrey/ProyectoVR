@@ -33,7 +33,7 @@ public class TazonEstacion2 : MonoBehaviour
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         source = GetComponent<AudioSource>();
         ingredientes = new List<string>();
-        ordenIngredientes = new List<string> { "huevosBatidos", "aceite", "leche", "azucar", "sal", "harina" }; // , "harina", "azucar", "leche", "aceite", "sal"
+        ordenIngredientes = new List<string> { "huevosBatidos", "aceite", "leche", "azucar", "SaltShaker", "harina" }; // , "harina", "azucar", "leche", "aceite", "sal"
         indiceActual = 0;
         SetState(BowlState.Empty);
     }

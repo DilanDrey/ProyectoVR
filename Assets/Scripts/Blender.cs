@@ -35,7 +35,7 @@ public class Blender : MonoBehaviour
     public bool AreIngredientsComplete()
     {
         List<string> ingredientes = tazonEstacion2.GetIngredientes();
-        List<string> ordenIngredientes = new List<string> { "huevosBatidos", "aceite", "leche", "azucar", "sal", "harina" }; // , "harina", "azucar", "leche", "aceite", "sal"
+        List<string> ordenIngredientes = new List<string> { "huevosBatidos", "aceite", "leche", "azucar", "SaltShaker", "harina" }; // , "harina", "azucar", "leche", "aceite", "sal"
 
         if (ingredientes.Count != ordenIngredientes.Count)
         {
