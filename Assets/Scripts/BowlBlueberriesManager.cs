@@ -8,9 +8,9 @@ public class BowlBlueberriesManager : MonoBehaviour
     public GameObject blueberryPrefab;
     public int numberOfBlueberries = 10;
 
-    // Define el área en la que las blueberries pueden aparecer dentro del bowl
+    // Define el ï¿½rea en la que las blueberries pueden aparecer dentro del bowl
     public Vector3 spawnAreaCenter = new Vector3(-0.924f, -0.613f, 2.331f);
-    public Vector3 spawnAreaSize = new Vector3(0.1f, 0.1f, 0.1f); // Ajusta este tamaño según el tamaño del bowl
+    public Vector3 spawnAreaSize = new Vector3(0.05f, 0.05f, 0.05f); // Ajusta este tamaï¿½o segï¿½n el tamaï¿½o del bowl
 
     void Start()
     {
@@ -25,19 +25,22 @@ public class BowlBlueberriesManager : MonoBehaviour
         // Instanciar la blueberry y establecer su padre como el bowl
         GameObject newBlueberry = Instantiate(blueberryPrefab, transform);
 
-        // Generar una posición aleatoria dentro del área de spawn
-        Vector3 randomPosition = spawnAreaCenter + new Vector3(
-            Random.Range(-spawnAreaSize.x / 2, spawnAreaSize.x / 2),
-            Random.Range(-spawnAreaSize.y / 2, spawnAreaSize.y / 2),
-            Random.Range(-spawnAreaSize.z / 2, spawnAreaSize.z / 2)
-        );
+        // Generar una posiciï¿½n aleatoria dentro del ï¿½rea de spawn
+        Vector3 randomPosition = spawnAreaCenter + new Vector3(0f, 0f, 0.4f);
 
-        // Asegurarse de que la posición local del bowl no se vea afectada
+        // Asegurarse de que la posiciï¿½n local del bowl no se vea afectada
         newBlueberry.transform.localPosition = randomPosition;
         newBlueberry.transform.localRotation = Quaternion.identity;
 
         // Compensamos el cambio de la escala al cambiar el padre
         newBlueberry.transform.localScale = new Vector3(30f, 30f, 30f);
+
+        // resize collider to half of currrent collider size
+        BoxCollider collider = newBlueberry.GetComponent<BoxCollider>();
+        collider.size = new Vector3(0.0002f, 0.0002f, 0.0002f) / 2;
+
+        // R
+
 
         // Debugging logs
         Debug.Log($"Blueberry spawned at local position {newBlueberry.transform.localPosition} with scale {newBlueberry.transform.localScale}");

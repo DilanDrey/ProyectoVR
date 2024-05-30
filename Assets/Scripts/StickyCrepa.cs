@@ -26,5 +26,25 @@ public class CrepeSticky : MonoBehaviour
 
             Debug.Log($"Fresa pegada a la crepa en la posición {collision.transform.localPosition}");
         }
+
+        if (collision.gameObject.name == "blueberry(Clone)")
+        {
+            // Hace que la fresa se convierta en hija de la crepa
+            collision.transform.SetParent(transform);
+
+            // Desactiva el Rigidbody para que la fresa no siga siendo afectada por la física
+            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = true;
+            }
+
+            // Ajusta la posición local de la fresa para que quede correctamente posicionada en la crepa
+            collision.transform.localPosition = transform.InverseTransformPoint(collision.transform.position);
+            //collision.transform.localRotation = Quaternion.identity;
+            collision.transform.localRotation = Quaternion.Euler(-90, 0, 0);
+
+            Debug.Log($"Fresa pegada a la crepa en la posición {collision.transform.localPosition}");
+        }
     }
 }
