@@ -44,4 +44,9 @@ public class TestScript : MonoBehaviour
                 break;
         }
     }
+
+    public void resetScene()
+    {
+        SceneManager.LoadScene("Scene0", LoadSceneMode.Single);
+    }
 }

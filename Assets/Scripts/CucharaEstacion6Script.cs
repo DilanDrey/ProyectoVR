@@ -14,7 +14,7 @@ public class CucharaEstacion6Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentHelado = null;
     }
 
     // Update is called once per frame
@@ -23,21 +23,9 @@ public class CucharaEstacion6Script : MonoBehaviour
         
     }
 
-    private void OnDrawGizmos()
-    {
-        // Guarda el color de Gizmos original
-        Gizmos.color = UnityEngine.Color.red;
-
-        // Establece el color de los Gizmos
-
-        // Dibuja un cubo en la posición del objeto con el tamaño especificado
-        Gizmos.DrawWireCube(transform.position + new Vector3(0, 0.0239f, 0.0483f), new Vector3(0.1f, 0.1f, 0.1f));
-
-        // Restaura el color original de Gizmos
-    }
-
     public void addIceCream(int tipo)
     {
+
         GameObject helado = null;
         switch (tipo)
         {
@@ -59,5 +47,16 @@ public class CucharaEstacion6Script : MonoBehaviour
         Debug.Log($"El nombre de la nueva instancia: {currentHelado}");
         helado.transform.localPosition = new Vector3(0, 0.0239f, 0.0483f);
         helado.transform.localRotation = Quaternion.Euler(90, 0, 0);
+    }
+
+    public bool hasIceCream()
+    {
+        if (currentHelado == null || currentHelado.Equals("")) return false;
+        return true;
+    }
+
+    public void setNoIceCream()
+    {
+        currentHelado = null;
     }
 }

@@ -31,7 +31,11 @@ public class BowHeladoScript : MonoBehaviour
         {
             Debug.Log("Es la cuchara");
             GameObject spoon =other.transform.parent.gameObject;
-            spoon.GetComponent<CucharaEstacion6Script>().addIceCream((int)tipo);
+            CucharaEstacion6Script ce = spoon.GetComponent<CucharaEstacion6Script>();
+            if (!ce.hasIceCream())
+            {
+                ce.addIceCream((int)tipo);
+            }
         }
     }
 }
